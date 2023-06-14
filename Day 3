@@ -1,1 +1,112 @@
+//There is only one Governor in the state, add static methods and properties you'd expect a Governor to have.
+class Governor {
+   static state = 'Ohio';
+   static term_length = 4;
+
+    static governorName(){
+      return 'Mike DeWine';
+    }
+
+    static penColor(){
+      return ['blue','black','red'];
+    }
+
+    static governorSpeech(message){
+      console.log(`The Governor says: ${message}`);
+}
+}
+
+//log the properties and test the methods (don't instantiate)
+console.log('State:', Governor.state);
+console.log('Term Length:', Governor.term_length);
+
+console.log('Current Governor:', Governor.governorName());
+
+const penColor = 'red';
+
+
+const message = 'In 2023, we will focus on education';
+Governor.governorSpeech(message);
+
+//Inheritance
+
+class Person {
+  constructor(name, age, weight) {
+    this.name = name;
+    this.age = age;
+    this.weight = weight; // Assign the weight parameter to the weight property
+  }
+
+  introduce() {
+    console.log(`Hey Y'all, my name is ${this.name}.`);
+  }
+
+  celebrateBirthday() {
+    this.age++;
+    console.log(`Today is my birthday! I'm now ${this.age} years old.`);
+  }
+
+  weightChange(newWeight) {
+    this.weight = newWeight; 
+    console.log(`I have been in the gym. My weight is now ${this.weight}.`);
+  }
+}
+
+// PostalWorker
+class PostalWorker extends Person {
+  deliverMail() {
+    console.log(`${this.name} is delivering the mail today.`);
+  }
+
+  sendMail() {
+    console.log(`${this.name} is sending the mail.`);
+  }
+}
+
+// Chef
+class Chef extends Person {
+  makingDessert(dessert) {
+    console.log(`${this.name} is preparing ${dessert}.`);
+  }
+
+  cook() {
+    console.log(`${this.name} is cooking.`);
+  }
+}
+
+// Create PostalWorkers
+const postalWorker1 = new PostalWorker('Mike', 27, 190);
+const postalWorker2 = new PostalWorker('Nick', 30, 220);
+
+// Test PostalWorker methods
+postalWorker1.introduce();
+postalWorker1.deliverMail();
+postalWorker1.sendMail();
+postalWorker1.celebrateBirthday();
+postalWorker1.weightChange(180);
+
+postalWorker2.introduce();
+postalWorker2.deliverMail();
+postalWorker2.sendMail();
+postalWorker2.celebrateBirthday();
+postalWorker2.weightChange(200);
+
+// Create Chefs
+const chef1 = new Chef('Jack', 35, 200);
+const chef2 = new Chef('Joe', 28, 220);
+
+// Test Chef methods
+chef1.introduce();
+chef1.makingDessert('cookies');
+chef1.cook();
+chef1.celebrateBirthday();
+chef1.weightChange(190);
+
+chef2.introduce();
+chef2.makingDessert('cheesecake');
+chef2.cook();
+chef2.celebrateBirthday();
+chef2.weightChange(210);
+
+
 
